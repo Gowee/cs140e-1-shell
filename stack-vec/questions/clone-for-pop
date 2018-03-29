@@ -1,0 +1,5 @@
+StackVec use a slice `storage` to store all the elements. 
+According to the documents, elements stored in arrays cannot be moved out anyway.
+Usually, `storage` is a slice derived from a array.
+But I am not sure about other types which can be used as `storage`.
+Concerning index access, I did try `Vec`. When I try to move value of it, the compiler complains "cannot move out of indexed content".

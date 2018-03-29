@@ -1,0 +1,6 @@
+Note: DerefMut depends on Deref.
+
+Answers:
+1. Those use stack_vec.iter() and access elements in StackVec by using stack_vec[index]. StackVec does not implement the two methods and its usuability relys on the implicit corecion into slices. (Only guess, I am not sure (or have forgotten) where and whether the documents or TRPL book mention this coercion.)
+2. Those mutate StackVec by using stack_vec[index] = new_element;. The reason is obvious.
+
