@@ -1,0 +1,4 @@
+It errors out.
+e.g.
+error: Invalid value for '--flow-control <flow_control>': value must be 'none', 'software' (xon/xoff), or 'hardware' (rts/cts)
+
