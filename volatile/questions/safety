@@ -1,0 +1,7 @@
+"That unsafe indicates the function has requirements we as programmers need to uphold when we call this function, because Rust can’t guarantee we’ve met these requirements. By calling an unsafe function within an unsafe block, we are saying that we’ve read this function’s documentations and take responsibility for upholding the function’s contracts ourselves."
+- TRPL 19.1
+
+"The caller must guarantee that ptr points to a value of type T that is valid for the 'static lifetime. Furthermore, unlike Volatile, ptr must be the only accessible mutable reference to the value. This is equivalent to casting the *mut T to &'static mut T."
+- doc of `new`
+
+As long as the user of this struct ensure the safty requirements for `new` is met, both `read` and `write` are also safe.

@@ -1,0 +1,3 @@
+`UniqueVolatile` uses `Unique` for its internal implementation and hence implement `Send`/`Sync`. So `UniqueVolatile` can be `Sync` between threads with safety guaranntees. (This guarantee relys on that the caller make sure `ptr` is the only accessible mutable reference to the value.)
+(Not sure -> ) Otherwise, when the referent is `Sync` among threads, some threads that hold reference to the referent may have trouble in reading its value (e.g. its value is likely to be in invalid state / inconsistency at some point).
+

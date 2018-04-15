@@ -1,0 +1,1 @@
+The encapsulation ensures that users / callers outside this `mod` can be notified for its unsafety by limiting the creation of the struct to `new`.

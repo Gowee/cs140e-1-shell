@@ -1,0 +1,1 @@
+`ReadVolatile` and `WriteVolatile` exposes only the necessary interface (i.e. method) with necessary mutability (i.e. whether `inner` return `mut` or not) respectively.
