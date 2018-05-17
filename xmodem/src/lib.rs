@@ -278,11 +278,11 @@ impl<T: io::Read + io::Write> Xmodem<T> {
                 // return Err(io::Error::new(io::ErrorKind::ConnectionAborted,
                 //                           "received EOT"));
             }
-            b => {
+            _ => {
                 self.write_byte(CAN)?;
                 return Err(io::Error::new(
                     io::ErrorKind::InvalidData,
-                    format!("expected SOH or EOT, received {}", b),
+                    "expected SOH or EOT, received other",
                 ));
             }
         }
@@ -366,10 +366,7 @@ impl<T: io::Read + io::Write> Xmodem<T> {
         if buf.len() < 128 && buf.len() != 0 {
             return Err(io::Error::new(
                 io::ErrorKind::UnexpectedEof,
-                format!(
-                    "invalid packet size, expected 128 bytes, got {} bytes",
-                    buf.len()
-                ),
+                "invalid packet size, expected 128 or 0 bytes",
             ));
         }
         if !self.started {
@@ -430,9 +427,9 @@ impl<T: io::Read + io::Write> Xmodem<T> {
                 Ok(128)
             }
             NAK => Err(io::Error::new(io::ErrorKind::Interrupted, "received NAK")),
-            o => Err(io::Error::new(
+            _ => Err(io::Error::new(
                 io::ErrorKind::InvalidData,
-                format!("expected ACK, received {}", o),
+                "expected ACK, received other",
             )),
         }
     }

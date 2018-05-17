@@ -1,0 +1,1 @@
+The container and its associated`Drop` help enforce runtime checking of borrow and ownership. Without the wrapping container and `Drop`, such checking cannot be done and the program may misbehave (i.e. race condition) unintendedly.

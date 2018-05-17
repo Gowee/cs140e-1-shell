@@ -1,0 +1,1 @@
+The PIN may be in inconsistent states with that indicated by the counterpart in the program. For example, the user/caller may fabricate the state of the struct as `Output`. However, the guarantee that `FSEL` is properly done is not satisfied.

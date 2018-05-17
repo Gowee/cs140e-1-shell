@@ -1,0 +1,1 @@
+ReadVolatile only exposes `read` interface but not `write`. So as long as the access is done with `ReadVolatile` instead of directly writing, CLO and CHI are read-only.

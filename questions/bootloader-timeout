@@ -1,0 +1,1 @@
+No idea. But I notice some unknown charaters are sent to the Pi when CP2102 is connected to the computer and hence it cause the first several reception trys return with `Err` (not TimedOut).
