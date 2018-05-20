@@ -375,7 +375,6 @@ impl<T: io::Read + io::Write> Xmodem<T> {
                 NAK,
                 "failed to start: expected NAK, got other",
             )?;
-            self.started = true;
         }
         if buf.len() == 0 {
             self.write_byte(EOT)?;
@@ -391,8 +390,9 @@ impl<T: io::Read + io::Write> Xmodem<T> {
             return Ok(0);
         }
         self.write_byte(SOH)?;
-        if self.packet == 0 {
+        if !self.started {
             (self.progress)(Progress::Started);
+            self.started = true;
         }
 
         let pno = self.packet;
